@@ -6,6 +6,7 @@
 user_id=$(id -u)
 logs_folder="/var/log/shell-practice"
 logs_file="${logs_folder}/${0}.log"
+
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -37,8 +38,8 @@ do
         dnf install ${package} -y &>> $logs_file
         validate $? "${package} Installation"
     else
-        echo "${package} is already installed...${Y}SKIPPING${N}"
+        echo -e "${package} is already installed...${Y}SKIPPING${N}"
     fi
 done
 
-echo -e "script execution completed at $(date +"%Y-%m-%d %H:%M:%S")" | tee -a $logs_file
+echo "script execution completed at $(date +"%Y-%m-%d %H:%M:%S")" | tee -a $logs_file
