@@ -13,7 +13,7 @@ validate(){
     if [ $1 -ne 0 ]
     then
         echo "${2}.. installation is failure..please check"
-        dnf install git -y
+        dnf install ${1} -y
         if [ $1 -ne 0 ]
         then
             echo "${2}.. installation is not success...check it"
