@@ -13,7 +13,9 @@ validate(){
     if [ $1 -ne 0 ]
     then
         echo "${2}.. installation is failure..please check"
-        dnf install ${1} -y
+        dnf install git -y
+        dnf install mysql -y
+        dnf install nginx -y
         if [ $1 -ne 0 ]
         then
             echo "${2}.. installation is not success...check it"
@@ -32,5 +34,5 @@ validate $? "Git installation"
 dnf list installed mysql
 validate $? "MySQL installation"
 
-dnf install nginx -y
+dnf list installed nginx
 validate $? "Nginx installation"
