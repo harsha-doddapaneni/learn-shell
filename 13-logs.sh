@@ -22,11 +22,17 @@ validate(){
     fi
 }
 
+dnf install git -y &>> $logs_file
+validate $? "Git Installation"
+
 dnf install nginx -y &>> $logs_file
 validate $? "Nginx Installation"
 
 dnf install mysql -y &>> $logs_file
 validate $? "Mysql Installation"
+
+dnf install postgresql -y &>> $logs_file
+validate $? "PostgreSQL Installation"
 
 echo "script execution completed at $(date +"%Y-%m-%d %H:%M:%S")" | tee -a $logs_file
 
