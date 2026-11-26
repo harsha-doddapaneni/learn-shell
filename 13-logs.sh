@@ -11,7 +11,7 @@ fi
 
 mkdir -p $logs_folder
 
-echo "script execution started at $(date +"%Y-%m-%d")" &>> $logs_file
+echo "script execution started at $(date +"%Y-%m-%d %H:%M:%S")" &>> $logs_file
 
 validate(){
     if [ $1 -ne 0 ]; then
@@ -28,7 +28,7 @@ validate $? "Nginx Installation"
 dnf install mysql -y &>> $logs_file
 validate $? "Mysql Installation"
 
-echo "script execution completed at $(date +"%Y-%m-%d")" | tee -a $logs_file
+echo "script execution completed at $(date +"%Y-%m-%d %H:%M:%S")" | tee -a $logs_file
 
 # tee -a $logs_file is used to write the output to both console and log file.
 # mkdir -p $logs_folder is used to create the logs folder if it does not exist.
